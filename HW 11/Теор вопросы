@@ -38,7 +38,7 @@ rest_of_function_declaration_goes_here
 template <typename T>
 void your_function(const T& t,
     enable_if_t<is_something<T>::value, const string&>
-s) {// ...
+s) {/ ...
 }
 
 
