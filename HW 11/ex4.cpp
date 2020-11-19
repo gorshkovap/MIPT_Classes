@@ -30,7 +30,6 @@ int f(double d)
 int main()
 {
 	std::cout << std::boolalpha;
-
 	std::cout << is_same_v <enable_if_t<(1 > 0), int>, int> << '\n';
 
 	if (f('c') == 2)
