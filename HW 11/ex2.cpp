@@ -32,12 +32,9 @@ int main()
 {
 	const int x = 0;
 	int y = 0;
-
 	remove_const_t<const int> a = y;
 	add_const_t<int> b = x;
-
 	std::cout << std::boolalpha;
-
 	std::cout << is_same_v<decltype(a), int> << '\n';
 	std::cout << is_same_v<decltype(b), const int> << '\n';
 
