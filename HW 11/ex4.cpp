@@ -14,7 +14,7 @@ template <bool B, typename T = void>
 using enable_if_t = typename enable_if<B, T>::type; 
 
 template <typename T1, typename T2>
-inline const bool is_same_v = std::is_same<T1, T2>::value; 
+bool is_same_v = std::is_same<T1, T2>::value; 
 
 template <typename T>
 enable_if_t<is_same_v<T, int>, T> f(T t)
