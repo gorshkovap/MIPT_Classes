@@ -1,4 +1,5 @@
 
+
 #include <iostream>
 #include <type_traits>
 
@@ -70,7 +71,7 @@ struct Is_array < T[] > : std::true_type
 };
 
 template <typename T>
-bool is_array = Is_array<T>::value;
+const bool is_array = Is_array<T>::value;
 
 template <typename T>
 using is_array_t = typename Is_array<T>::type;
@@ -82,13 +83,13 @@ template <typename F, typename ... Args>
 struct Is_function<F(Args...)> : std::true_type {};
 
 template <typename T>
-bool is_function = Is_function<T>::value;
+const bool is_function = Is_function<T>::value;
 
 template <typename T>
 struct decay
 {
 	using T1 = remove_reference_t<T>;
-	using type = if_then_else_t < is_array<T1>, is_array_t<T1>*, if_then_else_t<is_function<T1>, std::add_pointer_t<T1>, remove_const_t<T1> > >;
+    using type = if_then_else_t <is_array<T1>, is_array_t<T1>*, if_then_else_t<is_function<T1>, std::add_pointer_t<T1>, remove_const_t<T1> > >;
 };
 
 template <typename T>
@@ -115,9 +116,9 @@ int main()
 	std::cout << is_same_v<decay_t<int>, int(*)(int)> << '\n';
 	std::cout << is_same_v<decay_t<int>, void(*)()> << '\n';
 	std::cout << is_same_v<decay_t<int>, int> << '\n';
-	std::cout << is_same_v<decay_t<int(std::move(x))>, int> << '\n';
 	std::cout << is_same_v<decay_t<int>, int> << '\n';
-	std::cout << is_same_v<decay_t<int>, int*> << '\n';
+	std::cout << is_same_v<decay_t<int>, int> << '\n';
+	std::cout << is_same_v<decay_t<int>, int> << '\n';
 
 	return 0;
 }
