@@ -109,16 +109,15 @@ int main()
 	const int b[] = { 7, 8 };
 	auto& c = a;
 
-	std::cout << std::boolalpha;
-
-	std::cout << is_same_v<decay_t<int>, int*> << '\n';
-	std::cout << is_same_v<decay_t<int>, const int*> << '\n';
-	std::cout << is_same_v<decay_t<int>, int(*)(int)> << '\n';
-	std::cout << is_same_v<decay_t<int>, void(*)()> << '\n';
-	std::cout << is_same_v<decay_t<int>, int> << '\n';
-	std::cout << is_same_v<decay_t<int>, int> << '\n';
-	std::cout << is_same_v<decay_t<int>, int> << '\n';
-	std::cout << is_same_v<decay_t<int>, int> << '\n';
+	std::cout « std::boolalpha;
+	std::cout « is_same_v<decay_t<int(int)>, int(*)(int)> « '\n';
+	std::cout « is_same_v<decay_t<void()>, void(*)()> « '\n';
+	std::cout « is_same_v<decay_t<int &&>, int> « '\n';
+	std::cout « is_same_v<decay_t<int &>, int> « '\n';
+	std::cout « is_same_v<decay_t<const int&>, int> « '\n';
+	std::cout « is_same_v<decay_t<const int&&>, int> « '\n';
+	std::cout « is_same_v<decay_t<const int>, int> « '\n';
+	std::cout « is_same_v<decay_t<const int[]>, const int*> « '\n';
 
 	return 0;
 }
