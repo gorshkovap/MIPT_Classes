@@ -9,10 +9,8 @@ template <int n>
 
 
 template<>
-struct Fibonacci <0>
-{
+
     static const int Fibonacci<0> = 1;
-};
 
 template<>
 
