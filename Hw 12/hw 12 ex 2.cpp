@@ -4,22 +4,20 @@
 #include <iostream>
 
 template <int n>
-struct Fibonacci
-{
-    static const int value = Fibonacci <n - 1>::value + Fibonacci<n - 2>::value;
-};
+
+    static const int Fibonacci = Fibonacci <n - 1>::value + Fibonacci<n - 2>::value;
+
 
 template<>
 struct Fibonacci <0>
 {
-    static const int value = 1;
+    static const int Fibonacci<0> = 1;
 };
 
 template<>
-struct Fibonacci <1>
-{
-    static const int value = 1;
-};
+
+    static const int Fibonacci<1> = 1;
+
 
 
 
@@ -27,7 +25,7 @@ struct Fibonacci <1>
 int main(int argc, int * argv)
 {
 
-    constexpr int result = Fibonacci<4>::value;
+    constexpr int result = Fibonacci<4>;
     std::cout << result << std::endl;
     system("pause");
 }
