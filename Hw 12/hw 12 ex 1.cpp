@@ -4,23 +4,21 @@
 #include <iostream>
 
 template <int n, int k>  //c
-struct Combinations
-{
-	static const int value = Combinations<k - 1, n - 1>::value + Combinations<k, n - 1>::value;
 
-};
+	static const int comb = Combinations<k - 1, n - 1> + Combinations<k, n - 1>;
+
+
 
 template<int n>
-struct Combinations<0, n>
-{
-	static const int value = 1;
-};
+
+	static const int comb<0,n> = 1;
+
 
 template <int n>
-struct Combinations<n, n>
-{
-	static const int value = 1;
-};
+
+
+	static const int comb<n,n> = 1;
+
 
 int main(int argc, char** argv)
 {
