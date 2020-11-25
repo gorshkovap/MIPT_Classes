@@ -1,16 +1,18 @@
-﻿// hw 12 ex 2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+// hw 12 ex 2.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 
 #include <iostream>
 
 template <int n>
 
-    static const int Fibonacci = Fibonacci <n - 1>::value + Fibonacci<n - 2>::value;
 
+    static const int Fibonacci = Fibonacci <n - 1> + Fibonacci<n - 2>;
 
 template<>
 
+
     static const int Fibonacci<0> = 1;
+
 
 template<>
 
@@ -23,7 +25,6 @@ template<>
 int main(int argc, int * argv)
 {
 
-    constexpr int result = Fibonacci<4>;
-    std::cout << result << std::endl;
+    std::cout << Fibonacci<5> << std::endl;
     system("pause");
 }
