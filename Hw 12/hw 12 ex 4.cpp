@@ -25,7 +25,7 @@ template <int n>
 constexpr int PrimeNumber() {
     std::array<int, n> prime_numbers = {};
     prime_numbers.at(0) = 2;
-    for (int number = 5, index = 1; index < n; number += 2)
+    for (int number = 3, index = 1; index < n; number += 2)
     {
         if (NoDivisors<n>(index, number, prime_numbers))
         {
