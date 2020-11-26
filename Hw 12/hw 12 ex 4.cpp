@@ -5,9 +5,9 @@
 #include <array>
 
 template <int size>
-constexpr bool NoDivisors(const int N, const int number, const std::array<int, size>& prime_numbers)
+constexpr bool NoDivisors(const int n, const int number, const std::array<int, size>& prime_numbers)
 {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; i++)
     {
         if (number % prime_numbers.at(i) == 0)
         {
@@ -21,22 +21,22 @@ constexpr bool NoDivisors(const int N, const int number, const std::array<int, s
         return true;
 }
 
-template <int N>
+template <int n>
 constexpr int PrimeNumber() {
-    std::array<int, N> prime_numbers = {};
+    std::array<int, n> prime_numbers = {};
     prime_numbers.at(0) = 2;
-    for (int number = 5, index = 1; index < N; number += 2)
+    for (int number = 5, index = 1; index < n; number += 2)
     {
-        if (NoDivisors<N>(index, number, prime_numbers))
+        if (NoDivisors<n>(index, number, prime_numbers))
         {
             prime_numbers.at(index++) = number;
         }
     }
-    return prime_numbers.at(N - 1);
+    return prime_numbers.at(n - 1);
 }
 
 int main(int argc, char ** argv) {
-    constexpr int N = 3;
-    std::cout << PrimeNumber<N>() << std::endl;
+    constexpr int n = 17;
+    std::cout << PrimeNumber<n>() << std::endl;
     return 0;
 }
